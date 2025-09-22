@@ -6,6 +6,11 @@ import { GEN_ADDRESS } from "./constants"
 export const mint = async (tokens) => {
   const provider = _getProvider();
   if (!provider) throw new Error("Unable to connect to wallet");
+  
+  // Validate contract address
+  if (!GEN_ADDRESS || GEN_ADDRESS === "0x0000000000000000000000000000000000000000") {
+    throw new Error("Contract address not configured. Please set GEN_ADDRESS in constants.js");
+  }
 
   const signer = provider.getSigner();
   const contract = new Contract(GEN_ADDRESS, GEN_ABI, signer);

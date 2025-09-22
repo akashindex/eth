@@ -6,6 +6,13 @@ import { MINT_PRICE, MINT_PRICE_LANDPLOT, MINT_PRICE_ASTRONAUT, GEN_ADDRESS, LAN
 export const balanceOf = async (address) => {
   const provider = _getProvider();
   if (!provider) return BigNumber.from("0");
+  
+  // Validate contract address
+  if (!WETH_ADDRESS || WETH_ADDRESS === "0x0000000000000000000000000000000000000000") {
+    console.warn("WETH contract address not configured");
+    return BigNumber.from("0");
+  }
+  
   try {
     const signer = provider.getSigner();
     const contract = new Contract(WETH_ADDRESS, WETH_ABI, signer);
@@ -19,6 +26,14 @@ export const balanceOf = async (address) => {
 export const allowance = async (address) => {
   const provider = _getProvider();
   if (!provider) return BigNumber.from("0");
+  
+  // Validate contract addresses
+  if (!WETH_ADDRESS || WETH_ADDRESS === "0x0000000000000000000000000000000000000000" ||
+      !GEN_ADDRESS || GEN_ADDRESS === "0x0000000000000000000000000000000000000000") {
+    console.warn("Contract addresses not configured");
+    return BigNumber.from("0");
+  }
+  
   console.log(address)
   try {
     const signer = provider.getSigner();
@@ -33,6 +48,12 @@ export const allowance = async (address) => {
 export const approve = async () => {
   const provider = _getProvider();
   if (!provider) throw new Error("Unable to connect to wallet");
+  
+  // Validate contract addresses
+  if (!WETH_ADDRESS || WETH_ADDRESS === "0x0000000000000000000000000000000000000000" ||
+      !GEN_ADDRESS || GEN_ADDRESS === "0x0000000000000000000000000000000000000000") {
+    throw new Error("Contract addresses not configured. Please set WETH_ADDRESS and GEN_ADDRESS in constants.js");
+  }
 
   const signer = provider.getSigner();
   const contract = new Contract(WETH_ADDRESS, WETH_ABI, signer);
@@ -47,6 +68,15 @@ export const approve = async () => {
 export const allowanceLand = async (address) => {
   const provider = _getProvider();
   if (!provider) return BigNumber.from("0");
+  
+  // Validate contract addresses
+  if (!WETH_ADDRESS || WETH_ADDRESS === "0x0000000000000000000000000000000000000000" ||
+      !LANDPLOT_ADDRESS || LANDPLOT_ADDRESS === "0x0000000000000000000000000000000000000000" ||
+      !ASTRONAUT_ADDRESS || ASTRONAUT_ADDRESS === "0x0000000000000000000000000000000000000000") {
+    console.warn("Contract addresses not configured");
+    return BigNumber.from("0");
+  }
+  
   console.log(address)
   try {
     const signer = provider.getSigner();
@@ -64,6 +94,13 @@ export const allowanceLand = async (address) => {
 export const approveLand = async (isLandplot) => {
   const provider = _getProvider();
   if (!provider) throw new Error("Unable to connect to wallet");
+  
+  // Validate contract addresses
+  if (!WETH_ADDRESS || WETH_ADDRESS === "0x0000000000000000000000000000000000000000" ||
+      !LANDPLOT_ADDRESS || LANDPLOT_ADDRESS === "0x0000000000000000000000000000000000000000" ||
+      !ASTRONAUT_ADDRESS || ASTRONAUT_ADDRESS === "0x0000000000000000000000000000000000000000") {
+    throw new Error("Contract addresses not configured. Please set contract addresses in constants.js");
+  }
 
   const signer = provider.getSigner();
   const contract = new Contract(WETH_ADDRESS, WETH_ABI, signer);

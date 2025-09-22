@@ -6,6 +6,11 @@ import { LANDPLOT_ADDRESS } from "./constants"
 export const mint = async (tokens) => {
   const provider = _getProvider();
   if (!provider) throw new Error("Unable to connect to wallet");
+  
+  // Validate contract address
+  if (!LANDPLOT_ADDRESS || LANDPLOT_ADDRESS === "0x0000000000000000000000000000000000000000") {
+    throw new Error("Contract address not configured. Please set LANDPLOT_ADDRESS in constants.js");
+  }
 
   const signer = provider.getSigner();
   const contract = new Contract(LANDPLOT_ADDRESS, LANDPLOT_ABI, signer);

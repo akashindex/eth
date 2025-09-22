@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4e62963b.css",
+    "main.js": "/static/js/main.1a4bfd26.js",
+    "static/js/453.41a6dcc0.chunk.js": "/static/js/453.41a6dcc0.chunk.js",
+    "static/media/moon-4th.png": "/static/media/moon-4th.7f0700fbbdcea8dc8fba.png",
+    "static/media/ast1.png": "/static/media/ast1.0a22c9a7f22f1471b589.png",
+    "static/media/gradient.png": "/static/media/gradient.cde9cb05c4b5dbd9c45b.png",
+    "static/media/ast2.png": "/static/media/ast2.330735b324cf55daa806.png",
+    "static/media/logo.png": "/static/media/logo.1aac8299e1a815d12008.png",
+    "static/media/bg.png": "/static/media/bg.9f442199483b68ddbc59.png",
+    "static/media/ast.png": "/static/media/ast.89198129d23c77ed586b.png",
+    "static/media/ChakraPetch-Regular.ttf": "/static/media/ChakraPetch-Regular.3ece37a6045d355b4b86.ttf",
+    "static/media/Orbitron.ttf": "/static/media/Orbitron.2cd955e2f6f7a1ade5a3.ttf",
+    "index.html": "/index.html",
+    "main.4e62963b.css.map": "/static/css/main.4e62963b.css.map",
+    "main.1a4bfd26.js.map": "/static/js/main.1a4bfd26.js.map",
+    "453.41a6dcc0.chunk.js.map": "/static/js/453.41a6dcc0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4e62963b.css",
+    "static/js/main.1a4bfd26.js"
+  ]
+}
